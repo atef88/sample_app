@@ -148,7 +148,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   execjs
   jquery-rails (~> 2.0.0)
-  pg
+  pg (= 0.12.2)
   rails (= 3.2.3)
   rspec-rails (= 2.9.0)
   sass-rails (= 3.2.4)
