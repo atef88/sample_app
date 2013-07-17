@@ -5,6 +5,22 @@ describe "Static pages" do
 	let(:base_title) { "Ruby on Rails Tutorial Sample App"}
   subject { page }
 
+  it "should have the right links on the layout" do
+  visit root_path
+  click_link "About"
+  should have_selector('title', :text => full_title('About Us'))
+  click_link "Help"
+  should have_selector('title', :text => full_title('Help'))
+  click_link "Contact"
+  should have_selector('title', :text => full_title('Contact'))
+  click_link "Home"
+  click_link "Sign up now!"
+  should have_selector('title', :text => full_title('Sign up'))
+  click_link "sample app"
+  should have_selector('title', :text => full_title(''))
+  end
+
+
   describe "Home page" do
     before { visit root_path }
     it "should have the h1 'Sample App'" do
@@ -52,6 +68,7 @@ describe "Static pages" do
   		page.should have_selector('title', :text => full_title('Contact'))
   	end
   end
+
 
 
 end
