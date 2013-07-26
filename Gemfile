@@ -7,12 +7,14 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'turbolinks'
+gem 'faker', '1.0.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
 	gem 'rspec-rails' , '2.9.0'
 	gem 'annotate', '~> 2.4.1.beta'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
