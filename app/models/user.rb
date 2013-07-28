@@ -12,6 +12,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
+  has_many :microposts, dependent: :destroy
 
   before_save { |user| user.email = email.downcase }
   #before_save { self.email.downcase! }
@@ -24,8 +25,16 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   after_validation { self.errors.messages.delete(:password_digest)}
 
+  def feed
+      # This is preliminary . see "Following users" for the full implementation.
+      Micropost.where("user_id = ?", id)
+  end
+
+  
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
+
+
 end
